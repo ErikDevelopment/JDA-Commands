@@ -12,6 +12,7 @@ import java.util.Arrays;
 
 public class MessageReceivedListener extends ListenerAdapter {
     public void onMessageReceived(final MessageReceivedEvent event) {
+
         //Define values
         final String message = event.getMessage().getContentStripped();
         final Command command = JDACommands.getInstance().getCommandRegistry().getCommands().get(message);

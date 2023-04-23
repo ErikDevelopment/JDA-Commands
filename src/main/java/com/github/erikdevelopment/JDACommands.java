@@ -3,6 +3,8 @@ package com.github.erikdevelopment;
 import com.github.erikdevelopment.listener.*;
 import net.dv8tion.jda.api.JDA;
 
+import static com.github.erikdevelopment.util.Util.banner_txt;
+
 public class JDACommands {
     private static JDACommands INSTANCE;
     private final CommandRegistry commandRegistry;
@@ -16,6 +18,8 @@ public class JDACommands {
         // Register listeners
         this.jda.addEventListener(new SlashCommandInteractionListener());
         this.jda.addEventListener(new MessageReceivedListener());
+
+        System.out.println(banner_txt);
 
         // Define class instance
         INSTANCE = this;

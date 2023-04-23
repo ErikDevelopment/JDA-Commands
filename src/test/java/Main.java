@@ -1,3 +1,4 @@
+import com.github.erikdevelopment.CommandRegistry;
 import com.github.erikdevelopment.JDACommands;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -11,12 +12,12 @@ public class Main {
     public static void main(String[] args)
             throws InterruptedException
     {
-        // Note: It is important to register your ReadyListener before building
-        JDA jda = JDABuilder.createDefault("$token").build();
-        jda.addEventListener(new CommandRegistry());
-
-        // optionally block until JDA is ready
-        JDACommands.init(jda); // Initialize JDA Commands
-        jda.awaitReady();
+        // JDA Code - start
+        JDABuilder build = JDABuilder.createDefault("#token");
+        // JDA Code - stop
+        JDA application = build.build();
+        JDACommands jdaCommands = JDACommands.init(application); // Initialize JDA Commands
+        CommandRegistry registry = jdaCommands.getCommandRegistry();
+        registry.registerCommand(new TestCommand());
     }
 }
