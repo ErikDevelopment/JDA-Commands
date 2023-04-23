@@ -3,8 +3,10 @@ package com.github.erikdevelopment.listener;
 import com.github.erikdevelopment.Command;
 import com.github.erikdevelopment.JDACommands;
 import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.InteractionHook;
 
 import java.util.Arrays;
 
@@ -25,14 +27,16 @@ public class MessageReceivedListener extends ListenerAdapter {
         )
             // Member has no access of to the command
             return;
-
+        InteractionHook interactionHook = null;
         // Execute the command
         final String[] splitMessage = message.split(" ");
         command.execute(
                 event.getGuild(),
                 member,
+                event.getMessage(),
                 event.getChannel(),
                 event.getGuildChannel(),
+                interactionHook,
                 Arrays.copyOfRange(splitMessage, 1, splitMessage.length)
         );
     }

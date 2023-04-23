@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.channel.unions.GuildChannelUnion;
 import net.dv8tion.jda.api.entities.channel.unions.GuildMessageChannelUnion;
 import net.dv8tion.jda.api.entities.channel.unions.MessageChannelUnion;
+import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
 
 import java.util.Arrays;
@@ -107,8 +108,10 @@ public abstract class Command {
     public abstract void execute(
             final Guild guild,
             final Member member,
+            final Message message,
             final MessageChannelUnion channel,
             final GuildMessageChannelUnion guildChannel,
+            final InteractionHook interactionHook,
             final String[] arguments
     );
 }

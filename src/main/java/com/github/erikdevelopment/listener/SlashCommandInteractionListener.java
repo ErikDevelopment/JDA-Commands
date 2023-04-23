@@ -3,6 +3,7 @@ package com.github.erikdevelopment.listener;
 import com.github.erikdevelopment.Command;
 import com.github.erikdevelopment.JDACommands;
 import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.apache.commons.lang3.ArrayUtils;
@@ -26,12 +27,16 @@ public class SlashCommandInteractionListener extends ListenerAdapter {
             // Member has no access of to the command
             return;
 
+        Message message = null;
+
         // Execute the command
         command.execute(
                 event.getGuild(),
                 member,
+                message,
                 event.getChannel(),
                 event.getGuildChannel(),
+                event.getHook(),
                 ArrayUtils.addAll(
                         event.getSubcommandGroup() != null ? event.getSubcommandGroup().split(" ") : new String[] {},
                         event.getSubcommandName() != null ? event.getSubcommandName().split(" ") : new String[] {}

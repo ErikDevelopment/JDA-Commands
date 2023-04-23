@@ -16,8 +16,6 @@ public class JDACommands {
         // Register listeners
         this.jda.addEventListener(new SlashCommandInteractionListener());
         this.jda.addEventListener(new MessageReceivedListener());
-        this.jda.addEventListener(new ButtonInteractionListener());
-        this.jda.addEventListener(new ModalInteractionListener());
 
         // Define class instance
         INSTANCE = this;
