@@ -12,6 +12,7 @@ import java.util.Arrays;
 
 public class SlashCommandInteractionListener extends ListenerAdapter {
     public void onSlashCommandInteraction(final SlashCommandInteractionEvent event) {
+        //Define values
         final Command command = JDACommands.getInstance().getCommandRegistry().getCommands().get(event.getName().toLowerCase());
 
         if (command == null || !command.getPrefix().startsWith("/"))
@@ -29,7 +30,7 @@ public class SlashCommandInteractionListener extends ListenerAdapter {
 
         Message message = null;
 
-        // Execute the command
+        // Execute the command and adds the necessary values
         command.execute(
                 event.getGuild(),
                 member,

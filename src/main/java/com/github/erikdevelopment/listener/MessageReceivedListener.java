@@ -12,6 +12,7 @@ import java.util.Arrays;
 
 public class MessageReceivedListener extends ListenerAdapter {
     public void onMessageReceived(final MessageReceivedEvent event) {
+        //Define values
         final String message = event.getMessage().getContentStripped();
         final Command command = JDACommands.getInstance().getCommandRegistry().getCommands().get(message);
 
@@ -28,7 +29,8 @@ public class MessageReceivedListener extends ListenerAdapter {
             // Member has no access of to the command
             return;
         InteractionHook interactionHook = null;
-        // Execute the command
+
+        // Execute the command and adds the necessary values
         final String[] splitMessage = message.split(" ");
         command.execute(
                 event.getGuild(),

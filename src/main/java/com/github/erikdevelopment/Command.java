@@ -42,7 +42,7 @@ public abstract class Command {
     private final Role[] access;
 
     /**
-     * Category of the Command
+     * Category of the Command. If this field is empty, the category is set to "other".
      */
     private final String category;
 

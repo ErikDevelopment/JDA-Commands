@@ -25,9 +25,7 @@ public class JDACommands {
         return this.commandRegistry;
     }
 
-    public JDA getJDA() {
-        return this.jda;
-    }
+    public JDA getJDA() {return this.jda;}
 
     /**
      * Initialize the jda commands.
