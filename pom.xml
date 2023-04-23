@@ -6,7 +6,7 @@
 
     <groupId>com.github.erikdevelopment</groupId>
     <artifactId>OwnCommandExtension</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
 
     <name>JDA-Commands</name>
     <description>JDA Commands is an extension for JDA to make commands easier and clearer to develop.</description>

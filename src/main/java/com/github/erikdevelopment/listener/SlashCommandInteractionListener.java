@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.InteractionHook;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.Arrays;
@@ -29,8 +30,10 @@ public class SlashCommandInteractionListener extends ListenerAdapter {
             return;
 
         Message message = null;
-
-        // Execute the command and adds the necessary values
+        InteractionHook interactionHook = null;
+        event.deferReply().queue(interactionHook1 -> {
+            interactionHook1 = interactionHook;
+        });
         command.execute(
                 event.getGuild(),
                 member,
