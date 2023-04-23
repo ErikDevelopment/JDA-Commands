@@ -1,5 +1,6 @@
 package com.github.erikdevelopment;
 
+import com.google.common.base.Preconditions;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
@@ -40,6 +41,7 @@ public abstract class Command {
      */
     private final Role[] access;
 
+
     public Command(final String name, final String prefix) {
         this(name, prefix, (String) null);
     }
@@ -61,17 +63,20 @@ public abstract class Command {
     }
 
     public Command(final String name, final String prefix, final String description, final String[] aliases, final Role[] access) {
-        /*Check null arguments
+
+        /*
+        Check null arguments
+        */
+
         Preconditions.checkNotNull(name, "The name of a command cannot be null.");
         Preconditions.checkNotNull(prefix, "The prefix of a command cannot be null.");
         Preconditions.checkNotNull(aliases, "The aliases of a command cannot be null.");
         Preconditions.checkNotNull(access, "The access roles of a command cannot be null.");
-         */
 
         // Define arguments
         this.name = name;
         this.prefix = prefix;
-        this.description = description != null ? description : "-/-";
+        this.description = description.split("┃")[1] != null ? description : "-/-";
         this.aliases = Arrays.stream(aliases).map(String::toLowerCase).toArray(String[]::new);
         this.access = access;
     }
