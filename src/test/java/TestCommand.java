@@ -6,7 +6,7 @@ import net.dv8tion.jda.api.entities.channel.unions.GuildMessageChannelUnion;
 import net.dv8tion.jda.api.entities.channel.unions.MessageChannelUnion;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 
-public class TestCommand extends Command {
+public class TestCommand extends Command{
     public TestCommand() {
         super("test", "/");
     }

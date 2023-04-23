@@ -15,6 +15,7 @@ import java.util.Arrays;
 
 public abstract class Command {
 
+
     /**
      * This is the command name.
      */
@@ -41,37 +42,28 @@ public abstract class Command {
      */
     private final Role[] access;
 
-    /**
-     * Category of the Command. If this field is empty, the category is set to "other".
-     */
-    private final String category;
-
-    public Command(final String name, final String prefix, final String category) {
-        this(name, prefix,category, (String) null);
+    public Command(final String name, final String prefix) {
+        this(name, prefix, (String) null);
     }
 
-    public Command(final String name, final String prefix, final String category, final String description) {
-        this(name, prefix,category, description, new String[]{});
+    public Command(final String name, final String prefix, final String description) {
+        this(name, prefix, description, new String[]{});
     }
 
-    public Command(final String name, final String prefix, final String category, final Role... access) {
-        this(name, prefix,category, null, access);
+    public Command(final String name, final String prefix, final Role... access) {
+        this(name, prefix, null, access);
     }
 
-    public Command(final String name, final String prefix, final String category, final String description, final String... aliases) {
-        this(name, prefix,category, description, aliases, new Role[]{});
+    public Command(final String name, final String prefix, final String description, final String... aliases) {
+        this(name, prefix, description, aliases, new Role[]{});
     }
 
-    public Command(final String name, final String prefix, final String category, final String description, final Role... access) {
-        this(name, prefix, category, description, new String[]{}, access);
+    public Command(final String name, final String prefix, final String description, final Role... access) {
+        this(name, prefix, description, new String[]{}, access);
     }
 
-    public Command(final String name, final String prefix, final String category, final String description, final String[] aliases, final Role[] access) {
-
-        /*
-        Check null arguments
-        */
-
+    public Command(final String name, final String prefix, final String description, final String[] aliases, final Role[] access) {
+        // Check null arguments
         Preconditions.checkNotNull(name, "The name of a command cannot be null.");
         Preconditions.checkNotNull(prefix, "The prefix of a command cannot be null.");
         Preconditions.checkNotNull(aliases, "The aliases of a command cannot be null.");
@@ -80,7 +72,6 @@ public abstract class Command {
         // Define arguments
         this.name = name;
         this.prefix = prefix;
-        this.category = category != null ? description: "other";
         this.description = description != null ? description : "-/-";
         this.aliases = Arrays.stream(aliases).map(String::toLowerCase).toArray(String[]::new);
         this.access = access;
@@ -106,10 +97,6 @@ public abstract class Command {
         return this.access;
     }
 
-    public String getCategory(){
-        return this.category;
-    }
-
     /**
      * This abstract method is executed when the command is entered.
      *
@@ -129,3 +116,4 @@ public abstract class Command {
             final String[] arguments
     );
 }
+
