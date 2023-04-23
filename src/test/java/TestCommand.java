@@ -8,7 +8,7 @@ import net.dv8tion.jda.api.interactions.InteractionHook;
 
 public class TestCommand extends Command {
     public TestCommand() {
-        super("test", "/","sdfsdf");
+        super("test", "/");
     }
     @Override
     public void execute(Guild guild, Member member, Message message, MessageChannelUnion messageChannelUnion, GuildMessageChannelUnion guildMessageChannelUnion, InteractionHook interactionHook, String[] strings) {

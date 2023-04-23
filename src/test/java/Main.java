@@ -12,11 +12,15 @@ public class Main {
     public static void main(String[] args)
             throws InterruptedException
     {
-        // JDA Code - start
+        // JDABuilder Code - start
         JDABuilder build = JDABuilder.createDefault("#token");
-        // JDA Code - stop
+
         JDA application = build.build();
-        JDACommands jdaCommands = JDACommands.init(application); // Initialize JDA Commands
+
+        //Init JDACommands | Initialize JDA Commands
+        JDACommands jdaCommands = JDACommands.init(application);
+
+        //Registry Commands fpr JDACommands
         CommandRegistry registry = jdaCommands.getCommandRegistry();
         registry.registerCommand(new TestCommand());
     }
