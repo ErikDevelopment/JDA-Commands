@@ -2,7 +2,7 @@
 A test project for the extension of the repository of: https://github.com/Dominik48N/jda-commands
 
 ## Requirements
-The following things are required to use JDA Commands:
+The following things are required to use JDACommands:
 * Java 8+
 * [JDA](https://github.com/DV8FromTheWorld/JDA) v5.0.0-alpha.20
 
